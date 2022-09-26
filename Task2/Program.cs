@@ -9,7 +9,7 @@ namespace Task2
                 error = 0;
                 if (x == 0 || x == 1)
                     return x;
-                double approach = 1, sqrt = x, accuracy = 0.001;
+                double approach = 1, sqrt = x, accuracy = 0.01;
                 while (Math.Abs(sqrt - approach) > accuracy)
                 {
                     approach = sqrt;
@@ -29,9 +29,13 @@ namespace Task2
 
         static void Main(string[] args)
         {
-            int num;
-            double? x = Sqrt(0.0009, out num);
-            Console.WriteLine(x);
+            int err;
+            double num = 0.0009;
+            double? x = Sqrt(num, out err);
+            if(err == 0)
+                Console.WriteLine($"sqrt({num}) = {x}");
+            else
+                Console.WriteLine("Incorrect data");
             Console.ReadKey();
         }
     }
