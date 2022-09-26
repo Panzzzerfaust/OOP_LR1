@@ -19,7 +19,7 @@ namespace Task3
                 }
             }
             GCD(ref num1, ref num2);
-            Console.WriteLine($"{num1}  {num2}");
+            Console.WriteLine($"GCD: {num1} | GCD: {num2}");
             Console.ReadKey();
         }
     }

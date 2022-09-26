@@ -10,8 +10,10 @@ namespace Task4
     {
         static void Main(string[] args)
         {
-            QuadraticEquation quadraticEquation = new QuadraticEquation(2, 5, 3);
+            int a = 2, b = 5, c = 3;
+            QuadraticEquation quadraticEquation = new QuadraticEquation(a, b, c);
             quadraticEquation.Solve();
+            Console.WriteLine($"{a}x^2 + {b}x + {c} = 0");
             Console.WriteLine($"x1 = {quadraticEquation[0]}\nx2 = {quadraticEquation[1]}");
             Console.ReadKey();
         }
