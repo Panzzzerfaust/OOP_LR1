@@ -68,5 +68,10 @@ namespace Task1
             this.death = death;
             this.country = country;
         }
+
+        public override string ToString()
+        {
+            return $"{Name} {Surname} ({Birth.ToString("MM/dd/yyyy")} - {Death?.ToString("MM/dd/yyyy")})\n";
+        }
     }
 }

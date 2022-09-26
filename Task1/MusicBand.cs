@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Task1
 {
@@ -62,14 +63,7 @@ namespace Task1
         {
             if (this.name == name)
             {
-                Console.WriteLine($"{this.name} ({origin.Name}) | {genres} ");
-                Console.WriteLine(new string('=', 20));
-                foreach (Member mem in members)
-                {
-                    Console.WriteLine($"{mem.Pseudonym} | {mem.Name} {mem.Surname} ({mem.Birth.ToString("MM/dd/yyyy")} - {mem.Death?.ToString("MM/dd/yyyy")})");
-                }
-                Console.WriteLine(new string('=', 20));
-                Console.WriteLine();
+                Console.WriteLine(this.ToString());
             }
         }
         public void FindMembersByName(string name)
@@ -77,8 +71,22 @@ namespace Task1
             List<Member> search = members.Where(x => x.Name == name).ToList();
             foreach (Member mem in search)
             {
-                Console.WriteLine($"{mem.Name} {mem.Surname} ({mem.Birth.ToString("MM/dd/yyyy")} - {mem.Death?.ToString("MM/dd/yyyy")})");
+                Console.WriteLine(mem.ToString() + $" from {this.name}");
             }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder($"{this.name} ({origin.Name}) | {genres}\n");
+            sb.Append(new string('=', 20));
+            sb.Append("\n");
+            foreach (Member mem in members)
+            {
+                sb.Append(mem.ToString());
+            }
+            sb.Append(new string('=', 20));
+            sb.Append("\n");
+            return sb.ToString();
         }
     }
 }
